@@ -9,15 +9,16 @@ public class Part4 {
         for (String word : file.words()){
             //System.out.println(item);
             String lcurl = word.toLowerCase();
-            int currIndex = lcurl.indexOf("youtube.com"); //setting currIndex to current yt index
-             if (currIndex != -1){  
-               int dqstartIndex = lcurl.lastIndexOf("\"", currIndex); //grabbing the last doublequotes before the current youtube url
-               int dqstopIndex = lcurl.indexOf("\"", currIndex+1); 
-               System.out.println("This is the start index "  +currIndex); 
+            int curIndex = lcurl.indexOf("youtube.com"); //setting curIndex to current yt index
+             if (curIndex != -1){  
+               int startIndex = lcurl.lastIndexOf("\"", curIndex); //grabbing the last doublequotes before the current youtube url
+               int stopIndex = lcurl.indexOf("\"", curIndex + 1); 
+               System.out.println("This is the start index "  + curIndex); 
                //using word string to get the links with correct capitalization(using lcurl like a template/index key)
-               String realUrl = word.substring(dqstartIndex + 1, dqstopIndex);
+               String realUrl = word.substring(startIndex + 1, stopIndex);
                System.out.println(realUrl);}
         }
     
     }
 }
+
